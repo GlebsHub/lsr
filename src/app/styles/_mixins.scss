@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+@mixin media($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+@mixin field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+@mixin card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}

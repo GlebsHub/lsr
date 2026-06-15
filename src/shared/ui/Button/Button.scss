@@ -1,0 +1,39 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color $transition-fast, border-color $transition-fast, color $transition-fast;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &--primary {
+    color: $color-white;
+    background: $color-primary;
+
+    &:hover {
+      background: $color-primary-hover;
+    }
+  }
+
+  &--secondary {
+    color: $color-text;
+    background: $color-white;
+    border-color: $color-border;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+}

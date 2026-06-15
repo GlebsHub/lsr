@@ -1,0 +1,80 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.apartment-card {
+  @include card;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &__image-wrap {
+    position: relative;
+    padding: 16px 16px 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: $radius-sm;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-white;
+
+    &--delivered {
+      background: $color-delivered;
+    }
+
+    &--not-delivered {
+      background: $color-not-delivered;
+    }
+  }
+
+  &__body {
+    padding: 16px;
+  }
+
+  &__rooms {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__layout {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: $color-text-muted;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__meta-item {
+    font-size: 14px;
+    color: $color-text;
+  }
+}

@@ -1,0 +1,155 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.filters {
+  @include card;
+  padding: 12px 20px 20px;
+  overflow: visible;
+
+  &__header {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__count {
+    margin: 4px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-text-muted;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    @include field-label;
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+  }
+
+  &__checkbox {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0;
+    border: 0;
+    border-right: 1px solid $color-border;
+    border-radius: 0;
+    background: $color-white;
+    cursor: pointer;
+    transition: background-color $transition-fast, color $transition-fast;
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    &:has(.filters__checkbox-input:checked) {
+      background: rgb(223 30 66 / 8%);
+      color: #df1e42;
+    }
+
+    &:has(.filters__checkbox-input:focus-visible) {
+      @include focus-ring;
+    }
+  }
+
+  &__checkbox-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__checkbox-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__slider {
+    padding: 8px 4px 0;
+
+    .rc-slider-rail {
+      height: 4px;
+      background: $color-border;
+    }
+
+    .rc-slider-track {
+      height: 4px;
+      background: #df1e42;
+    }
+
+    .rc-slider-handle {
+      width: 18px;
+      height: 18px;
+      margin-top: -7px;
+      border: 2px solid #df1e42;
+      background: $color-white;
+      opacity: 1;
+      box-shadow: none;
+
+      &:focus-visible {
+        @include focus-ring;
+      }
+    }
+  }
+
+  &__actions {
+    margin-top: 8px;
+  }
+
+  &__reset {
+    width: 100%;
+
+    &:hover {
+      border-color: #df1e42;
+      color: #df1e42;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #df1e42;
+      outline-offset: 2px;
+    }
+  }
+
+  @include media($breakpoint-tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+
+    &__header,
+    &__actions {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include media($breakpoint-desktop) {
+    display: block;
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    z-index: 1;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+  }
+}
