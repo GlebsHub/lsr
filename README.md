@@ -41,23 +41,4 @@ npm run dev
 
 Фильтры применяются с небольшой задержкой (debounce), список обновляется автоматически.
 
-## API (MSW)
 
-`GET /api/apartments`
-
-| Параметр | Описание |
-|----------|----------|
-| `rooms` | Список комнат через запятую, например `1,2,4` (4 = 4+) |
-| `areaMin`, `areaMax` | Диапазон площади, м² |
-| `floorMin`, `floorMax` | Диапазон этажа |
-| `layoutType` | `studio` \| `euro` \| `free` |
-| `deliveryStatus` | `delivered` \| `not_delivered` |
-
-Ответ:
-
-```json
-{
-  "data": [/* Apartment[] */],
-  "total": 12
-}
-```
