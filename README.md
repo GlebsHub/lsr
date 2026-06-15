@@ -61,29 +61,3 @@ npm run dev
   "total": 12
 }
 ```
-
-В моке 25 квартир с разными параметрами.
-
-## Деплой (GitHub Pages)
-
-Деплой настроен через GitHub Actions (`.github/workflows/deploy.yml`). При пуше в `main` проект автоматически собирается и публикуется.
-
-### Первый запуск
-
-1. Создайте репозиторий [lsr](https://github.com/new) на GitHub (без README, .gitignore и лицензии).
-2. В корне проекта:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<username>/lsr.git
-git push -u origin main
-```
-
-3. В репозитории: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
-После успешного workflow демо будет доступно по адресу `https://<username>.github.io/lsr/`.
-
-MSW работает и в production-сборке — демо не требует реального бэкенда.
